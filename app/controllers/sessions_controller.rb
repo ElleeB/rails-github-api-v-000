@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       # within the body is an access token unique to this specific request
     end
     # parses the response body into a Ruby hash and stores this hash as the body variable
-    body = JSON.parse(response.body)
+    body = JSON.parse(response.body)["name"]
     # need this token whenever we send API requests
     session[:token] = body["access_token"]
     redirect_to root_path
